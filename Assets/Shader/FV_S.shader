@@ -1,4 +1,6 @@
-﻿//Multi-Pass Shader Test. Rapapa.net
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+//Multi-Pass Shader Test. Rapapa.net
  
 Shader "Test/FV_S" {
   Properties {}
@@ -30,7 +32,7 @@ Shader "Test/FV_S" {
  
       vertexOutput vert(vertexInput v) {
         vertexOutput o;
-        o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+        o.pos = UnityObjectToClipPos(v.vertex);
         o.color = v.color;
         return o;
       }
